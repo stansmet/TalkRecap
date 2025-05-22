@@ -63,3 +63,7 @@ dmypy.json
 # MacOS / Linux system files
 .DS_Store
 Thumbs.db
+
+# Audio files
+*.mp3
+*.ogg

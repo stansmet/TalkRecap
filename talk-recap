@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+
+import typer
+from core import video_to_audio, audio_to_text, make_meet_report
+
+def convert(from_file: str, to_file: str):
+    """
+    Converts a meeting video recording into a text summary.
+
+    Example:
+        ./talk-recap meeting.mp4 meeting-recap.txt
+    """
+    video_to_audio(from_file, 'tmp/tmp.ogg')
+    transcription = audio_to_text('tmp/tmp.ogg')
+    meet_report = make_meet_report(transcription)
+    with open(to_file, 'w') as f:
+        f.write(meet_report.content)
+
+
+if __name__ == "__main__":
+    typer.run(convert)
+
+
+# from rich.console import Console
+# console = Console()
+# with console.status("[bold green]Convert video to audio...", spinner="bouncingBar"):
+#     video_to_audio("x.mp4", "y.ogg")
+
+# with console.status("[bold green]Convert audio to text...", spinner="bouncingBar"):
+#     transcription = audio_to_text("tmp.ogg")
+#
+# with console.status("[bold green]Convert text to meet report...", spinner="bouncingBar"):
+#     meet_report = make_meet_report(transcription)
+#
