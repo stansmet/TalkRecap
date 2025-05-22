@@ -54,7 +54,6 @@ dmypy.json
 
 # Environments
 .env
-.env.*
 *.env
 
 # VS Code (если кто-то будет открывать)
@@ -65,5 +64,4 @@ dmypy.json
 Thumbs.db
 
 # Audio files
-*.mp3
-*.ogg
+tmp/*
